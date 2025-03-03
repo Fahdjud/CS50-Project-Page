@@ -15,6 +15,7 @@
         <link href="/static/icons/Frame_1.png" rel="icon">
 
         <link href="/static/styles.css" rel="stylesheet">
+        <link href="/static/login-register.css" rel="stylesheet">
 
         <title>Fahdjud Demo</title>
 
@@ -63,7 +64,7 @@
 
                 <div class="video-background">
                     <video autoplay loop muted>
-                        <source src="\static\images\homesec-background.mp4" type="video/mp4">
+                        <source src="static/images/homesec-background.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                   </div>
@@ -77,7 +78,63 @@
                       </div>
                   </div> 
 
-
+                  <div class="video-background">
+                    <video autoplay loop muted>
+                        <source src="static/images/login-background.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="container login-container my-5 ">
+                    <div class="card login-card mb-3 mx-auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Login</h5>
+                            <form action="/portal/login.html" method="POST" class="text-center justify-content-center py-3 needs-validation" novalidate>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username" required>
+                                    <label for="floatingInput">Username</label>
+                                    <div class="invalid-feedback">
+                                        Please enter a username.
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+                                    <label for="floatingPassword">Password</label>
+                                    <div class="invalid-feedback">
+                                        Please enter your password.
+                                    </div>
+                                </div>
+                                <div class="py-3">
+                                    <button type="submit" class="btn btn-success px-5 py-2">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <script>
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function () {
+                        'use strict'
+                
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+                
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                            .forEach(function (form) {
+                                form.addEventListener('submit', function (event) {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault()
+                                        event.stopPropagation()
+                                    }
+                
+                                    form.classList.add('was-validated')
+                                }, false)
+                            })
+                    })()
+                
+                </script>
+                
                   
             </main>
         <footer class="bg-custom-footer text-center py-5">
