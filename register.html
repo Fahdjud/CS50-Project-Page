@@ -26,7 +26,7 @@
         <nav class="bg-custom-header navbar navbar-expand-md navbar-dark">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="/">
-                    <img src="/static/icons/Frame_1.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    <img src="\static\icons\Frame_1.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     <strong>Gelly</strong> Converter
                 </a>
                 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
@@ -40,7 +40,7 @@
                                   <strong>Hi User </strong>
                                 </a>
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="portal/profile.html">View Profile</a></li>
+                                  <li><a class="dropdown-item" href="profile.html">View Profile</a></li>
                                   <li class="nav-item"><a class="dropdown-item" href="#">Log Out</a></li>
                                 </ul>
                         </ul>
@@ -61,23 +61,30 @@
                                     </div>
                     </div>
                 </div>
-
-                  <div class="video-background">
+                  
+                <div class="video-background">
                     <video autoplay loop muted>
-                        <source src="static/images/login-background.mp4" type="video/mp4">
+                        <source src="static\images\login-background.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <div class="container login-container my-5 ">
+                <div class="container login-container mt-5 mb-5">
                     <div class="card login-card mb-3 mx-auto">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Login</h5>
-                            <form action="portal/login.html" method="POST" class="text-center justify-content-center py-3 needs-validation" novalidate>
+                            <h5 class="card-title text-center">Register</h5>
+                            <form action="register.html" method="POST" class="text-center justify-content-center py-3 needs-validation" novalidate>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username" required>
                                     <label for="floatingInput">Username</label>
                                     <div class="invalid-feedback">
-                                        Please enter a username.
+                                        Please enter your username.
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com" required>
+                                    <label for="floatingEmail">Email address</label>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address.
                                     </div>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -87,49 +94,63 @@
                                         Please enter your password.
                                     </div>
                                 </div>
-                                <div class="py-3">
-                                    <button type="submit" class="btn btn-success px-5 py-2">Submit</button>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingConfirmPassword" name="confirmation" placeholder="Confirm Password" required>
+                                    <label for="floatingConfirmPassword">Confirm Password</label>
+                                    <div class="invalid-feedback">
+                                        Password does not match.
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
+                                <div class="">
+                                    <button type="button" class="btn btn-success px-5 py-2">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
                 <script>
                     // Example starter JavaScript for disabling form submissions if there are invalid fields
                     (function () {
                         'use strict'
-                
+
                         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.querySelectorAll('.needs-validation')
-                
-                        // Loop over them and prevent submission
-                        Array.prototype.slice.call(forms)
-                            .forEach(function (form) {
-                                form.addEventListener('submit', function (event) {
-                                    if (!form.checkValidity()) {
-                                        event.preventDefault()
-                                        event.stopPropagation()
-                                    }
-                
-                                    form.classList.add('was-validated')
-                                }, false)
-                            })
+                        var modal = document.querySelectorAll('.needs-validated');
+                        var submitButton = modal.querySelector('button[type="submit"]');
+
+                        submitButton.addEventListener('click', function (event) {
+                            var form = modal.querySelector('form');
+                            var password = form.querySelector('#floatingPassword').value;
+                            var confirmPassword = form.querySelector('#floatingConfirmPassword').value;
+
+                            if (!form.checkValidity() || password !== confirmPassword) {
+                            event.preventDefault();
+                            event.stopPropagation();
+
+                            if (password !== confirmPassword) {
+                                form.querySelector('#floatingConfirmPassword').setCustomValidity('Passwords do not match');
+                            } else {
+                                form.querySelector('#floatingConfirmPassword').setCustomValidity('');
+                            }
+                            } else {
+                            
+                            }
+
+                            form.classList.add('was-validated');
+                        });
                     })()
-                
                 </script>
-                
-                  
+
             </main>
         <footer class="bg-custom-footer text-center py-5">
             <div>
                 <nav>
                     <ul class="nav justify-content-center py-3">
                         <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="portal/login.html">login</a>
+                          <a class="nav-link" aria-current="page" href="login.html">login</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="portal/register.html">register</a>
+                          <a class="nav-link" href="register.html">register</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="index.html">home</a>
